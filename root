@@ -1,0 +1,3 @@
+# do daily/weekly/monthly maintenance
+# min   hour    day     month   weekday command
+*/1     *       *       *       *       python /usr/src/app/app.py >> /usr/src/app/cron.log 2>&1
