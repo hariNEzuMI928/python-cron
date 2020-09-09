@@ -2,6 +2,10 @@
 
 ## 起動
 
+```git clone https://github.com/hariNEzuMI928/python-cron.git python-cron```
+
+```cd python-cron```
+
 ```docker-compose up -d```
 
 ```docker exec python-cron cron restart bash```
