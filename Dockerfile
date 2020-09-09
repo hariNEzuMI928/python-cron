@@ -1,8 +1,9 @@
-FROM python:3.8-alpine
+FROM jupyter/datascience-notebook
 
-RUN apk --update add tzdata && \
-    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-    apk del tzdata && \
-    rm -rf /var/cache/apk/* && \
-    cat /var/spool/cron/crontabs/root  | dos2unix > /var/spool/cron/crontabs/root && \
-    /usr/sbin/crond start
+USER root
+
+RUN apt-get -y update && \
+    apt-get install -y vim cron tzdata && \
+    # 日本時間に変更
+    ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    /etc/init.d/cron restart
